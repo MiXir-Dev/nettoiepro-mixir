@@ -49,26 +49,26 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 text-center">
+            <div className="flex justify-between text-center text-gray-600">
               <div>
-                <div className="text-3xl font-bold text-[#01dbff] mb-2">500+</div>
-                <div className="text-gray-600">Clients satisfaits</div>
+                <div className="text-2xl font-bold text-[#01dbff] mb-2">300+</div>
+                <div className="text-gray-600">Maisons</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#01dbff] mb-2">4 ans</div>
+                <div className="text-2xl font-bold text-[#01dbff] mb-2">2 ans</div>
                 <div className="text-gray-600">D'expérience</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#01dbff] mb-2">100%</div>
+                <div className="text-2xl font-bold text-[#01dbff] mb-2">100%</div>
                 <div className="text-gray-600">Satisfaction</div>
               </div>
             </div>
           </div>
 
-          {/* Image */}
+          {/* { Image */}
           <div ref={imageRef} className={`relative transition-all duration-1000 ${imageVisible ? 'animate-fade-right' : ''}`}>
             <img 
-              src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=600&h=600&fit=crop"
+              src="/team.png"
               alt="Équipe NettoiePro"
               className="rounded-3xl shadow-xl w-full"
             />

@@ -22,7 +22,7 @@ const Hero = () => {
       {/* Background Image avec overlay subtil */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1920&h=1080&fit=crop&crop=center"
+          src="/house.png"
           alt="Nettoyage professionnel de vitres"
           className="w-full h-full object-cover"
         />
@@ -38,18 +38,18 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-on-scroll' : ''}`}>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#121212] mb-8 leading-tight">
-              Propreté.{' '}
+              L'excellence du{' '}
               <span className="bg-gradient-to-r from-[#01dbff]/80 to-[#01dbff]/60 bg-clip-text text-transparent">
-                Fiabilité.
+                nettoyage
               </span>{' '}
               <br />
-              Simplicité.
+              résidentiel.
             </h1>
           </div>
           
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'animate-on-scroll' : ''}`}>
             <p className="text-2xl md:text-3xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto font-light">
-              Services de nettoyage professionnels pour vos espaces résidentiels et commerciaux en <span className="font-semibold text-[#01dbff]">Estrie</span>
+              Services de nettoyage professionnels en <span className="font-semibold text-[#01dbff]">Estrie</span>
             </p>
           </div>
 
@@ -72,17 +72,17 @@ const Hero = () => {
 
           {/* Trust indicators améliorés */}
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto transition-all duration-1000 delay-700 ${isVisible ? 'animate-on-scroll' : ''}`}>
-            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/40 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <span className="font-semibold text-lg">Soumission gratuite</span>
               <CheckCircle size={24} className="text-[#01dbff]" />
-              <span className="font-semibold text-lg">Service rapide 48h</span>
             </div>
-            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CheckCircle size={24} className="text-[#01dbff]" />
+            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/40 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <span className="font-semibold text-lg">Équipe certifiée</span>
-            </div>
-            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <CheckCircle size={24} className="text-[#01dbff]" />
+            </div>
+            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/40 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <span className="font-semibold text-lg">Satisfaction garantie</span>
+              <CheckCircle size={24} className="text-[#01dbff]" />
             </div>
           </div>
         </div>

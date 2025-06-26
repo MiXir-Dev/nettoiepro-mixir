@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Phone, Mail, Clock, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import emailjs from '@emailjs/browser';
 
 const QuotePage = () => {
   const { toast } = useToast();
@@ -17,19 +17,16 @@ const QuotePage = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const services = [
     'Lavage de vitres',
-    'Lavage à pression (haute)',
-    'Lavage à pression (basse)',
+    'Nettoyage à pression',
     'Nettoyage de gouttières',
     'Installation de protège-gouttières',
-    'Installation de lumières modernes',
-    'Installation de lumières de Noël'
+    'Installation LEDs',
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -46,9 +43,9 @@ const QuotePage = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.nom || !formData.telephone || formData.services.length === 0) {
       toast({
         title: "Informations manquantes",
@@ -58,74 +55,39 @@ const QuotePage = () => {
       return;
     }
 
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    
-    toast({
-      title: "Soumission envoyée!",
-      description: "Nous vous contacterons dans les 24 heures.",
-    });
+    try {
+      const templateParams = {
+        destinataire: "nettoiepro.qc@gmail.com",
+        nom: formData.nom,
+        telephone: formData.telephone,
+        adresse: formData.adresse,
+        courriel: formData.courriel,
+        services: formData.services.join(', '),
+        message: formData.message
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+      );
+
+      setIsSubmitted(true);
+
+      toast({
+        title: "Soumission envoyée!",
+        description: "Nous vous contacterons dans les 24 heures."
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Erreur lors de l'envoi",
+        description: "Veuillez réessayer plus tard ou nous contacter directement.",
+        variant: "destructive"
+      });
+    }
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-[#fafafa] to-white">
-        <Header />
-        <div className="pt-32 pb-8 px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl border border-[#01dbff]/10 text-center">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle size={40} className="text-green-600" />
-              </div>
-              
-              <h1 className="text-3xl md:text-4xl font-bold text-[#121212] mb-4">
-                Soumission reçue!
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8">
-                Merci {formData.nom}! Nous avons bien reçu votre demande.
-              </p>
-              
-              <div className="bg-[#01dbff]/5 rounded-xl p-6 mb-8 text-left">
-                <h3 className="font-bold text-[#121212] mb-4">Prochaines étapes:</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-[#01dbff] rounded-full"></div>
-                    <span className="text-gray-700">Analyse de votre demande (dans l'heure)</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-[#01dbff] rounded-full"></div>
-                    <span className="text-gray-700">Contact téléphonique (sous 24h)</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-[#01dbff] rounded-full"></div>
-                    <span className="text-gray-700">Soumission détaillée par courriel</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="tel:8194320064"
-                  className="flex items-center justify-center space-x-2 bg-[#01dbff] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#01dbff]/90 transition-all duration-300"
-                >
-                  <Phone size={18} />
-                  <span>Nous appeler maintenant</span>
-                </a>
-                
-                <a
-                  href="/"
-                  className="flex items-center justify-center space-x-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
-                >
-                  <span>Retour à l'accueil</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fafafa] to-white">

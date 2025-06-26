@@ -24,20 +24,26 @@ const Services = () => {
 
   const services = [
     {
-      image: "/realizations/s1.jpeg",
+      image: "/realizations/r3.jpeg",
       title: 'Lavage de vitres (intérieur & extérieur)',
       description: 'Nettoyage manuel + raclette ; cadre, rebords et moustiquaires compris. Produits biodégradables antistatiques.',
       features: ['Maisons, condos, commerces', 'Idéal printemps & automne', 'Produits écologiques']
     },
     {
       image: "/realizations/s2.jpeg",
-      title: 'Lavage à pression haute / basse',
+      title: 'Nettoyage à pression',
       description: 'Dégraissage et décrassage de parements, terrasses, dalles, clôtures. Ajustement de la pression pour ne pas abîmer le bois ou vinyle.',
       features: ['Revêtements extérieurs encrassés', 'Préparation avant peinture', 'Pression ajustée par matériau']
     },
     {
       image: "/realizations/s3.png",
-      title: 'Nettoyage et protection de gouttières',
+      title: 'Nettoyage de gouttières',
+      description: 'Retrait des feuilles / débris, rinçage complet, inspection des joints. Option Protège-gouttières (grilles aluminium ou mousse filtrante) installée sur place.',
+      features: ['Prévention des débordements', 'Inspection complète', 'Installation protège-gouttières']
+    },
+    {
+      image: "/realizations/s5.png",
+      title: 'Installation de protège gouttières',
       description: 'Retrait des feuilles / débris, rinçage complet, inspection des joints. Option Protège-gouttières (grilles aluminium ou mousse filtrante) installée sur place.',
       features: ['Prévention des débordements', 'Inspection complète', 'Installation protège-gouttières']
     },

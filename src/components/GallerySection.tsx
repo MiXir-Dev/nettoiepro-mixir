@@ -39,18 +39,18 @@ const GallerySection = () => {
       description: "Nettoyage haute pression"
     },
     {
-      image: "/realizations/r3.jpeg",
-      title: "Villa Orford",
+      image: "/realizations/s1.jpeg",
+      title: "Résidence Orford",
       description: "Entretien gouttières"
     },
     {
       image: "/realizations/r4.jpeg",
-      title: "Chalet Hatley",
+      title: "Domicile Hatley",
       description: "Installation lumières"
     },
     {
       image: "/realizations/r5.jpeg",
-      title: "Condo Brompton",
+      title: "Foyer Brompton",
       description: "Nettoyage façade"
     },
     {
