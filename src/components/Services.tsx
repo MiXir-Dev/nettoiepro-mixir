@@ -25,9 +25,9 @@ const Services = () => {
   const services = [
     {
       image: "/realizations/r3.jpeg",
-      title: 'Lavage de vitres (intérieur & extérieur)',
-      description: 'Nettoyage manuel + raclette ; cadre, rebords et moustiquaires compris. Produits biodégradables antistatiques.',
-      features: ['Maisons, condos, commerces', 'Idéal printemps & automne', 'Produits écologiques']
+      title: "Lavage de vitres (intérieur & extérieur)",
+      description: "Lavage professionnel à la main ou par perche télescopique avec eau pure (osmose inversée). Aucune trace. Cadres, rebords et moustiquaires inclus. Produits biodégradables utilisés à l’intérieur.",
+      features: ["Système à eau pure (osmose)", "Aucun résidu ni trace", "Maisons, condos, commerces"]
     },
     {
       image: "/realizations/s2.jpeg",
@@ -37,15 +37,15 @@ const Services = () => {
     },
     {
       image: "/realizations/s3.png",
-      title: 'Nettoyage de gouttières',
-      description: 'Retrait des feuilles / débris, rinçage complet, inspection des joints. Option Protège-gouttières (grilles aluminium ou mousse filtrante) installée sur place.',
-      features: ['Prévention des débordements', 'Inspection complète', 'Installation protège-gouttières']
+      title: "Nettoyage de gouttières",
+      description: "Nettoyage complet des gouttières : retrait des feuilles et débris, rinçage à haute pression, vérification des joints et descentes pluviales. Préparation idéale avant installation de protège-gouttières.",
+      features: ["Prévention des débordements", "Inspection complète", "Entretien optimal des descentes"]
     },
     {
       image: "/realizations/s5.png",
-      title: 'Installation de protège gouttières',
-      description: "Pose professionnelle de protège-gouttières en aluminium ou mousse filtrante pour prévenir l’accumulation de débris. Comprend un nettoyage complet, un rinçage interne, et une inspection détaillée des descentes.",
-      features: ['Prévention des débordements', 'Inspection complète', 'Installation protège-gouttières']
+      title: "Installation de protège-gouttières",
+      description: "Installation professionnelle de grilles en aluminium ou mousse filtrante. Comprend nettoyage, rinçage interne, inspection des descentes et pose sécurisée pour une protection durable contre les obstructions.",
+      features: ["Grilles aluminium ou mousse", "Nettoyage + inspection inclus", "Protection 4 saisons"]
     },
     {
       image: "/realizations/s4.png",
