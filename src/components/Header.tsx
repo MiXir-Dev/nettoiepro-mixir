@@ -76,7 +76,7 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full text-left text-[#121212] hover:text-[#01dbff] font-semibold py-3 transition-colors text-lg border-b border-aliceblue-100"
+                  className="block w-full text-left text-[#121212] hover:text-[#01dbff] font-semibold py-3 transition-colors text-lg"
                 >
                   {item.name}
                 </Link>

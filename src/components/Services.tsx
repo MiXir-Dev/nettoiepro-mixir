@@ -44,7 +44,7 @@ const Services = () => {
     {
       image: "/realizations/s5.png",
       title: 'Installation de protège gouttières',
-      description: 'Retrait des feuilles / débris, rinçage complet, inspection des joints. Option Protège-gouttières (grilles aluminium ou mousse filtrante) installée sur place.',
+      description: "Pose professionnelle de protège-gouttières en aluminium ou mousse filtrante pour prévenir l’accumulation de débris. Comprend un nettoyage complet, un rinçage interne, et une inspection détaillée des descentes.",
       features: ['Prévention des débordements', 'Inspection complète', 'Installation protège-gouttières']
     },
     {
@@ -52,6 +52,16 @@ const Services = () => {
       title: 'Installation de lumières',
       description: 'Lumières modernisées (bandes LED, éclairage architectural) et lumières de Noël (pose, retrait, entreposage). Mise en valeur de façade toute l\'année ou décorations saisonnières clé-en-main.',
       features: ['Éclairage LED moderne', 'Décorations de Noël', 'Service clé-en-main']
+    },
+    {
+      image: "/realizations/s7.png", // ajuste selon ton image réelle
+      title: "Installation d’éclairage LED extérieur",
+      description: "Mise en valeur de votre propriété grâce à l'installation de bandes LED discrètes et performantes. Éclairage architectural sur mesure pour entrées, soffites, contours de toit et allées, avec une consommation réduite.",
+      features: [
+        "Éclairage permanent ou saisonnier",
+        "Accentuation de l’architecture",
+        "Installation discrète et durable"
+      ]
     }
   ];
 

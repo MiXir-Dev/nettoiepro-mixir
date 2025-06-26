@@ -1,13 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import { useEffect, useState } from 'react';
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
-  const [touchEndX, setTouchEndX] = useState<number | null>(null);
-  const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,23 +22,6 @@ const Testimonials = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    if (touchStartX !== null && touchEndX !== null) {
-      const delta = touchStartX - touchEndX;
-      if (Math.abs(delta) > 50) {
-        if (delta > 0) {
-          setSwipeDirection('left');
-          nextTestimonial();
-        } else {
-          setSwipeDirection('right');
-          prevTestimonial();
-        }
-      }
-      setTouchStartX(null);
-      setTouchEndX(null);
-    }
-  }, [touchEndX]);
 
   const testimonials = [
     {
@@ -75,26 +58,10 @@ const Testimonials = () => {
     }
   ];
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    setTouchEndX(e.changedTouches[0].clientX);
-  };
-
   return (
     <section id="testimonials" className="py-12 md:py-24 bg-gradient-to-br from-[#fafafa] to-white relative overflow-hidden">
-      {/* Formes géométriques */}
-      <div className="absolute top-20 left-0 w-64 h-64 bg-gradient-to-br from-[#01dbff]/5 to-transparent rounded-full blur-3xl"></div>
+      {/* Décor */}
+      <div className="absolute top-20 left-0 w-64 h-64 bg-gradient-to-br from-[#01dbff]/5 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className={`text-center mb-8 md:mb-16 transition-all duration-1000 ${isVisible ? 'animate-on-scroll' : ''}`}>
@@ -106,70 +73,61 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
-        <div
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          className={`bg-white/80 backdrop-blur-sm rounded-3xl p-4 md:p-8 lg:p-12 shadow-xl border border-[#01dbff]/10 relative overflow-hidden transition-all duration-700 ease-in-out ${
-            swipeDirection === 'left' ? 'animate-swipe-left' : swipeDirection === 'right' ? 'animate-swipe-right' : ''
-          }`}
-          onAnimationEnd={() => setSwipeDirection(null)}
+        {/* Swiper */}
+        <Swiper
+          modules={[Pagination, EffectFade]}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          effect="slide"
+          grabCursor
+          autoHeight
+          className="max-w-6xl mx-auto"
         >
-            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
-              {/* Photo */}
-              <div className="w-full lg:w-1/2 order-2 lg:order-1">
-                <img 
-                  src={testimonials[currentIndex].resultImage}
-                  alt={`Résultat ${testimonials[currentIndex].service}`}
-                  className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg transition-opacity duration-500"
-                />
-                <p className="text-center text-sm text-gray-500 mt-2">
-                  {testimonials[currentIndex].service}
-                </p>
-              </div>
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-white/80 backdrop-blur p-6 md:p-10 lg:p-14">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
+                  {/* Image */}
+                  <div className="w-full lg:w-1/2">
+                    <img
+                      src={testimonial.resultImage}
+                      alt={`Résultat ${testimonial.service}`}
+                      className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+                    />
+                    <p className="text-center text-sm text-gray-500 mt-2">
+                      {testimonial.service}
+                    </p>
+                  </div>
 
-              {/* Texte */}
-              <div className="w-full lg:w-1/2 order-1 lg:order-2">
-                <div className="flex justify-center lg:justify-start mb-4 md:mb-6">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} size={20} className="text-yellow-400 fill-current mx-1" />
-                  ))}
+                  {/* Texte */}
+                  <div className="w-full lg:w-1/2">
+                    <div className="flex justify-center lg:justify-start mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} size={20} className="text-yellow-400 fill-current mx-1" />
+                      ))}
+                    </div>
+
+                    <blockquote className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-6 italic leading-relaxed">
+                      “{testimonial.text}”
+                    </blockquote>
+
+                    <div className="text-center lg:text-left">
+                      <div className="font-bold text-[#121212] text-lg md:text-xl">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-[#01dbff] font-semibold text-sm md:text-base">
+                        {testimonial.service}
+                      </div>
+                      <div className="text-gray-600 text-sm md:text-base">
+                        {testimonial.location}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <blockquote className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-6 md:mb-8 leading-relaxed italic">
-                  "{testimonials[currentIndex].text}"
-                </blockquote>
-
-                <div className="text-center lg:text-left">
-                  <div className="font-bold text-[#121212] text-lg md:text-xl mb-1">
-                    {testimonials[currentIndex].name}
-                  </div>
-                  <div className="text-[#01dbff] font-semibold mb-1 text-sm md:text-base">
-                    {testimonials[currentIndex].service}
-                  </div>
-                  <div className="text-gray-600 text-sm md:text-base">
-                    {testimonials[currentIndex].location}
-                  </div>
-                </div>
               </div>
-            </div>
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center mt-8 md:mt-12 space-x-2 md:space-x-3">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-[#01dbff] scale-125' 
-                    : 'bg-gray-300 hover:bg-[#01dbff]/50'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

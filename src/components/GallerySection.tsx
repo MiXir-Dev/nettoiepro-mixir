@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Camera } from 'lucide-react';
-import { after, before } from 'node:test';
 
 const GallerySection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

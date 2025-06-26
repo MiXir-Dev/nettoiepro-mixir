@@ -1,5 +1,4 @@
-
-import { ArrowRight, Phone, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -18,72 +17,69 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#fafafa] via-white to-[#fafafa] overflow-hidden">
-      {/* Background Image avec overlay subtil */}
+    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
+      {/* Background Image + Overlay */}
       <div className="absolute inset-0">
         <img 
           src="/house.png"
           alt="Nettoyage professionnel de vitres"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center brightness-[0.95] contrast-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/80 to-[#01dbff]/5"></div>
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
       </div>
 
-      {/* Forme géométrique moderne */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-[#01dbff]/10 to-[#01dbff]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-gradient-to-tr from-[#01dbff]/8 to-transparent rounded-full blur-2xl"></div>
+      {/* Modern Decorative Shapes */}
+      <div className="absolute top-32 right-10 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-20 left-10 w-64 h-64 bg-cyan-300/10 rounded-full blur-2xl pointer-events-none"></div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-20">
-        <div className="max-w-5xl mx-auto">
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-on-scroll' : ''}`}>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#121212] mb-8 leading-tight">
-              L'excellence du{' '}
-              <span className="bg-gradient-to-r from-[#01dbff]/80 to-[#01dbff]/60 bg-clip-text text-transparent">
-                nettoyage
-              </span>{' '}
-              <br />
-              résidentiel.
-            </h1>
-          </div>
-          
-          <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'animate-on-scroll' : ''}`}>
-            <p className="text-2xl md:text-3xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto font-light">
-              Services de nettoyage professionnels en <span className="font-semibold text-[#01dbff]">Estrie</span>
-            </p>
-          </div>
+      {/* Main Content */}
+      <div className="relative z-10 max-w-6xl px-6 text-center pt-24 pb-20">
+        <div className={`transition-opacity duration-1000 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#121212] leading-tight max-w-4xl mx-auto mb-6">
+            L'excellence du{' '}
+            <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+              nettoyage
+            </span>{' '}
+            résidentiel
+          </h1>
 
-          <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 transition-all duration-1000 delay-500 ${isVisible ? 'animate-on-scroll' : ''}`}>
+          <p className="text-lg md:text-xl text-gray-600 font-light max-w-2xl mx-auto mb-10">
+            Services de nettoyage professionnels en <span className="text-cyan-500 font-medium">Estrie</span>
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-14">
             <Link
               to="/soumission"
-              className="group bg-gradient-to-r from-[#01dbff]/80 to-[#01dbff]/60 text-white px-12 py-6 rounded-2xl font-semibold text-xl hover:from-[#01dbff] hover:to-[#01dbff]/80 transition-all duration-500 transform hover:scale-105 flex items-center space-x-4 shadow-2xl hover:shadow-3xl backdrop-blur-sm"
+              className="group bg-cyan-400 hover:bg-cyan-500 text-white px-10 py-4 rounded-xl text-lg font-medium transition-transform transform hover:scale-105 shadow-md flex items-center space-x-2"
             >
               <span>Obtenir une soumission gratuite</span>
-              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-300" />
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            
+
             <button
               onClick={scrollToServices}
-              className="text-[#121212] border-2 border-gray-300 px-12 py-6 rounded-2xl font-semibold text-xl hover:bg-gradient-to-r hover:from-[#01dbff]/5 hover:to-[#01dbff]/10 hover:border-[#01dbff]/50 hover:text-[#01dbff] transition-all duration-500 backdrop-blur-sm"
+              className="text-[#121212] border border-gray-300 px-10 py-4 rounded-xl text-lg font-medium bg-gray-100/60 transition-all"
             >
               Découvrir nos services
             </button>
           </div>
 
-          {/* Trust indicators améliorés */}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto transition-all duration-1000 delay-700 ${isVisible ? 'animate-on-scroll' : ''}`}>
-            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/40 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <span className="font-semibold text-lg">Soumission gratuite</span>
-              <CheckCircle size={24} className="text-[#01dbff]" />
-            </div>
-            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/40 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <span className="font-semibold text-lg">Équipe certifiée</span>
-              <CheckCircle size={24} className="text-[#01dbff]" />
-            </div>
-            <div className="flex items-center justify-center space-x-4 text-gray-700 bg-white/40 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <span className="font-semibold text-lg">Satisfaction garantie</span>
-              <CheckCircle size={24} className="text-[#01dbff]" />
-            </div>
+          {/* Trust Indicators */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              "Soumission gratuite",
+              "Équipe certifiée",
+              "Satisfaction garantie",
+            ].map((text, idx) => (
+              <div
+                key={idx}
+                className="flex items-center justify-center gap-3 bg-white/60 backdrop-blur-sm px-6 py-4 rounded-xl shadow hover:shadow-md transition hover:scale-105"
+              >
+                <CheckCircle size={20} className="text-cyan-400" />
+                <span className="text-gray-800 font-medium">{text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
