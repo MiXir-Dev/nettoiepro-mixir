@@ -33,57 +33,44 @@
 
     <!-- Local Business Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "NettoiePro",
-      "description": "Service professionnel de lavage de vitres et nettoyage extérieur en Estrie",
-      "url": "https://nettoieproqc.ca",
-      "telephone": "(819) 432-0064",
-      "email": "info@nettoieproqc.ca",
-      "priceRange": "$$",
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Sherbrooke",
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "NettoiePro",
+        "description": "Service professionnel de lavage de vitres et nettoyage extérieur en Estrie",
+        "url": "https://nettoieproqc.ca",
+        "telephone": "(819) 432-0064",
+        "email": "info@nettoieproqc.ca",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4259 rue du Pavillon",
+          "addressLocality": "Sherbrooke",
           "addressRegion": "QC",
+          "postalCode": "J1N 3B6",
           "addressCountry": "CA"
         },
-        {
-          "@type": "City", 
-          "name": "Magog",
-          "addressRegion": "QC",
-          "addressCountry": "CA"
-        },
-        {
-          "@type": "City",
-          "name": "Orford", 
-          "addressRegion": "QC",
-          "addressCountry": "CA"
-        },
-        {
-          "@type": "City",
-          "name": "Hatley",
-          "addressRegion": "QC", 
-          "addressCountry": "CA"
+        "areaServed": [
+          { "@type": "City", "name": "Sherbrooke", "addressRegion": "QC", "addressCountry": "CA" },
+          { "@type": "City", "name": "Magog", "addressRegion": "QC", "addressCountry": "CA" },
+          { "@type": "City", "name": "Orford", "addressRegion": "QC", "addressCountry": "CA" },
+          { "@type": "City", "name": "Hatley", "addressRegion": "QC", "addressCountry": "CA" }
+        ],
+        "serviceType": [
+          "Lavage de vitres résidentiel",
+          "Nettoyage fenêtres commercial",
+          "Nettoyage à pression",
+          "Nettoyage gouttières",
+          "Installation lumières"
+        ],
+        "openingHours": "Mo-Su 07:00-21:00",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "47"
         }
-      ],
-      "serviceType": [
-        "Lavage de vitres résidentiel",
-        "Nettoyage fenêtres commercial", 
-        "Nettoyage à pression",
-        "Nettoyage gouttières",
-        "Installation lumières"
-      ],
-      "openingHours": "Mo-Su 07:00-21:00",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "47"
       }
-    }
     </script>
-
     <link rel="icon" href="/logo.png" type="image/png">
     
     <!-- Google Fonts -->
