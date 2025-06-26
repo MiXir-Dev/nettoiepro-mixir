@@ -18,7 +18,7 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Depuis 2020, NettoiePro s'engage à offrir des services de nettoyage professionnels 
+              Depuis 2023, NettoiePro s'engage à offrir des services de nettoyage professionnels 
               qui dépassent vos attentes. Notre passion pour l'excellence et notre attention aux 
               détails font de nous le choix privilégié des résidents et entreprises de l'Estrie.
             </p>
